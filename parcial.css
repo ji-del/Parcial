@@ -1,3 +1,12 @@
 .row{
     padding: 15px;
 }
+.row.personales{
+    padding: 20px;
+}
+.container{
+    background-color: rgb(22, 216, 141);
+}
+body{
+    background-color: rgb(22, 216, 141) ;
+}
