@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="parcial.css" rel="stylesheet">
+    <script>
+      function validar() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+    
+        if (password.length < 8 || password.length > 20) {
+          alert('La contraseña debe tener entre 8 y 20 caracteres.');
+          return false;
+        }
+    
+        if (password !== confirmPassword) {
+          alert('Las contraseñas no coinciden.');
+          return false;
+        }
+    
+        return true;
+      }
+    </script>
 </head>
 <body>
   <form class="row g-3 needs-validation" novalidate></form>
@@ -31,31 +49,32 @@
           </div>
         </div>
         <div class="row ">
+          
           <div class="col-sm-3">
             <h4>Correo electronico:</h4> 
           </div>
           <div class="col-sm-9">
             <textarea class="form-control"  placeholder="Nombre Completo" id="floatingTextarea"></textarea>
         </div>
-        <div class="row ">
+        <div class="row">
           <div class="col-sm-3">
-            <h4>Contraseña:</h4> 
+            <label for="password"><h4>Contraseña:</h4></label>
           </div>
           <div class="col-sm-6">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
           </div>
           <div class="col-sm-3">
             <span id="passwordHelpInline" class="form-text">
-              Must be 8-20 characters long.
+              Debe tener entre 8 y 20 caracteres.
             </span>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-3">
-            <h4>Confirmar contraseña:</h4> 
+            <label for="confirmPassword"><h4>Confirmar contraseña:</h4></label>
           </div>
           <div class="col-sm-9">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmar contraseña" required>
           </div>
         </div>
         <div class="row">
@@ -166,8 +185,8 @@
           </div>  
         </div>
         <div class="row">
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+          <div class="col-sm-12 mt-3">
+            <button type="button" class="btn btn-primary" onclick="if (validar()) alert('Todo correcto');">Enviar</button>
           </div>
         </div>
     </div>
